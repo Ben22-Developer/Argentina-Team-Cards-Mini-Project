@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+    --dark-color: rgb(21, 21, 57);
+    --light-color:rgb(254, 254, 254);
+}
+
+body {
+    background-color: var(--dark-color);
+    height: 100vh;
+    overflow-y: auto;
+}
+
+main {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: max-content;
+}
+
+header,ul,#showNbrPlayers {
+    color: var(--light-color);
+    margin: 2rem 0 0 0;
+}
+
+header,#showNbrPlayers {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+select {
+    margin: 2rem 0 0 0;
+    padding: .5rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#wholeTeamCardsContainer {
+    margin: 2rem 0 0 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    .playerCard {
+        background-color: var(--light-color);
+        width: 24rem;
+        border-radius: 1.5rem;
+        padding: 1rem 0;
+        line-height: 1.5rem; 
+        text-align: center;
+        p:first-of-type {
+            font-weight: bold;
+        }
+    }
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    color: var(--light-color);
+    border-top: 1px solid;
+    margin: 2rem 0 0 0;
+    padding:1rem 0;
+    text-align: center;
+    align-self: end;
+}
+
+@media (width < 768px) {
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:1rem;
+    }
+}
