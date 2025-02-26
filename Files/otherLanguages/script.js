@@ -23,24 +23,20 @@ const allPlayers =
 ];
 
 //To make UI cards 
-function cardsUI (array = allPlayers,bool = false) {
-    if (bool) {
-        const allUICards = document.querySelectorAll('.playerCard');
-        allUICards.forEach(aCard => {
-            aCard.remove();
-        })
-    }
+function cardsUI (array = allPlayers) {
+    const cardsContainer = document.getElementById('wholeTeamCardsContainer');
+    cardsContainer.innerHTML = '';
     for (let i = 0; i < array.length; i++) {
         const cardsContainer = document.getElementById('wholeTeamCardsContainer');
-        const aCard = document.createElement('div');
-        aCard.innerHTML = `
-        <p>${array[i].name}</p>
-        <p>Position: ${array[i].position}</p>
-        <p>Number: ${array[i].number}</p>
-        <p>Nickname: ${array[i].nickname}</p>
+        //const aCard = document.createElement('div');
+        cardsContainer.innerHTML += `
+        <div class = "playerCard">
+            <p>${array[i].name}</p>
+            <p>Position: ${array[i].position}</p>
+            <p>Number: ${array[i].number}</p>
+            <p>Nickname: ${array[i].nickname}</p>
+        </div>
         `;
-        aCard.setAttribute('class','playerCard');
-        cardsContainer.append(aCard);
     }
     document.getElementById('showNbrPlayers').innerText = `All players: ${array.length}`;
 }
@@ -57,32 +53,27 @@ const userResponse = (() => {
         let arr = [];
         switch(selectBtn.value) {
             case 'All Players':
-                cardsUI();
+                cardsUI(allPlayers);
             break;
         
             case 'Nicknames':
-                arr = allPlayers.filter(aCard => aCard.nickname !== 'N/A');
-                cardsUI(arr,true);
+                cardsUI(allPlayers.filter(aCard => aCard.nickname !== 'N/A'));
             break;
         
             case 'Position Forward':
-                arr = allPlayers.filter(aCard => aCard.position === 'forward');
-                cardsUI(arr,true);
+                cardsUI(allPlayers.filter(aCard => aCard.position === 'forward'));
             break;
         
             case 'Position Midfielder':
-                arr = allPlayers.filter(aCard => aCard.position === 'midfielder');
-                cardsUI(arr,true);
+                cardsUI(allPlayers.filter(aCard => aCard.position === 'midfielder'));
             break;
         
             case 'Position Defender':
-                arr = allPlayers.filter(aCard => aCard.position === 'defender');
-                cardsUI(arr,true);
+                cardsUI(allPlayers.filter(aCard => aCard.position === 'defender'));
             break;
         
             case 'Position Goalkeeper':
-                arr = allPlayers.filter(aCard => aCard.position === 'goalkeeper');
-                cardsUI(arr,true);
+                cardsUI(allPlayers.filter(aCard => aCard.position === 'goalkeeper'));
             break;
         
             default:
