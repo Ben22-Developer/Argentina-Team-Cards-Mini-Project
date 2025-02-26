@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -21,9 +22,10 @@ main {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: max-content;
+    justify-items: center;
 }
 
-header,ul,#showNbrPlayers {
+header,ul,#showNbrPlayers,a,#backTotop {
     color: var(--light-color);
     margin: 2rem 0 0 0;
 }
@@ -67,8 +69,12 @@ select {
     }
 }
 
-select:hover {
+a:hover,select:hover {
     cursor: pointer;
+}
+
+#backTotop {
+
 }
 
 footer {
